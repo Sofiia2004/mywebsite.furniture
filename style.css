@@ -1,0 +1,33 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5EFE6;
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: justify;
+}
+
+/* Container Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Додайте ці стилі до вашого CSS-файлу */
+#categories {
+  margin-bottom: 20px;
+}
+
+.category-checkbox {
+  margin-right: 10px;
+}

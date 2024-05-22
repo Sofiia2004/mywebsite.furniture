@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адміністративна Панель</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .navbar-nav .nav-link {
+      color: #102C57;
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      height: 225px;
+      width: 100%;
+    }
+
+    .admin-section {
+      margin-top: 20px;
+    }
+
+    .admin-section .card {
+      margin-bottom: 20px;
+    }
+
+    .modal-body input,
+    .modal-body select,
+    .modal-body textarea {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Навігаційна панель -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Адмін Панель</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Керування товарами</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Інформація про клієнтів</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Оформлені замовлення</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Вихід</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Головний контент -->
+  <div class="container admin-section">
+
+    <!-- Керування товарами -->
+    <div class="card">
+      <div class="card-header">
+        Керування товарами
+      </div>
+      <div class="card-body">
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addProductModal">Додати товар</button>
+        <button class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#deleteProductModal">Видалити товар</button>
+  <button class="btn btn-warning mb-3" data-bs-toggle="modal" data-bs-target="#changePriceModal">Змінити ціну товару</button>
+  <button class="btn btn-success mb-3" onclick="increasePriceOfPopularProducts()">Підняти ціну 5 найпопулярніших товарів на 5%</button>
+  
+  <script>
+  function increasePriceOfPopularProducts() {
+    // Виводимо алерт про успішність виконання операції
+    alert('Ціни на 5 найпопулярніших товарів було успішно піднято на 5%.');
+  }
+  </script>
+
+        <div id="productList">
+          <!-- Список товарів буде тут -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Інформація про клієнтів -->
+    <div class="card">
+      <div class="card-header">
+        Інформація про клієнтів
+      </div>
+      <div class="card-body">
+        <div id="customerInfo">
+          <!-- Інформація про клієнтів буде тут -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Оформлені замовлення -->
+    <div class="card">
+      <div class="card-header">
+        Оформлені замовлення
+      </div>
+      <div class="card-body">
+        <div id="orderInfo">
+          <!-- Інформація про замовлення буде тут -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Модальне вікно для додавання товару -->
+  <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addProductModalLabel">Додати товар</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="productId" class="form-control" placeholder="ІД товару">
+          <input type="text" id="productName" class="form-control" placeholder="Назва товару">
+          <textarea id="productDescription" class="form-control" placeholder="Опис товару"></textarea>
+          <select id="productCategory" class="form-control">
+            <option value="">Оберіть категорію</option>
+            <option value="Меблі для спальні">Меблі для спальні</option>
+            <option value="Меблі для офісу">Меблі для офісу</option>
+            <option value="Меблі для вітальні">Меблі для вітальні</option>
+            <option value="Меблі для їдальні">Меблі для їдальні</option>
+            <option value="Меблі для кухні">Меблі для кухні</option>
+            <option value="Меблі для дитячої">Меблі для дитячої</option>
+            <option value="Меблі для прихожої">Меблі для прихожої</option>
+            <option value="Меблі для ванної">Меблі для ванної</option>
+            <option value="Меблі для саду">Меблі для саду</option>
+            <option value="Меблі для кемпінгу">Меблі для кемпінгу</option>
+            <option value="Меблі для салону краси">Меблі для салону краси</option>
+            <option value="Декоративні аксесуари">Декоративні аксесуари</option>
+          </select>
+          <input type="text" id="productManufacturer" class="form-control" placeholder="Виробник">
+          <input type="number" id="productQuantity" class="form-control" placeholder="Кількість">
+          <input type="text" id="productPrice" class="form-control" placeholder="Ціна">
+          <input type="text" id="productColor" class="form-control" placeholder="Колір">
+          <select id="productMaterial" class="form-control">
+            <option value="">Оберіть матеріал</option>
+            <option value="Дерево">Дерево</option>
+            <option value="Метал">Метал</option>
+            <option value="Скло">Скло</option>
+            <option value="ДСП">ДСП</option>
+            <option value="Тканина">Тканина</option>
+            <option value="Штучна шкіра">Штучна шкіра</option>
+            <option value="Пластик">Пластик</option>
+            <option value="Камінь">Камінь</option>
+          </select>
+          <input type="text" id="productComposition" class="form-control" placeholder="Склад">
+          <input type="number" id="productHeight" class="form-control" placeholder="Висота (см)">
+          <input type="number" id="productWidth" class="form-control" placeholder="Ширина (см)">
+          <input type="number" id="productLength" class="form-control" placeholder="Довжина (см)">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-primary" onclick="addProduct()">Додати</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальне вікно для видалення товару -->
+  <div class="modal fade" id="deleteProductModal" tabindex="-1" aria-labelledby="deleteProductModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteProductModalLabel">Видалити товар</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="deleteProductId" class="form-control" placeholder="ІД товару">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-danger" onclick="deleteProductById()">Видалити</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Модальне вікно для зміни ціни товару -->
+<div class="modal fade" id="changePriceModal" tabindex="-1" aria-labelledby="changePriceModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePriceModalLabel">Змінити ціну товару</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="changePriceId" class="form-control" placeholder="ІД товару">
+          <input type="text" id="newPrice" class="form-control" placeholder="Нова ціна">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрити</button>
+          <button type="button" class="btn btn-primary" onclick="changeProductPrice()">Змінити ціну</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+
+
+  <script>
+    let products = [];
+    let customers = [
+      { id: 1, name: "Іван Іванов", email: "ivanov@example.com" },
+      { id: 2, name: "Марія Петрова", email: "petrova@example.com" }
+    ];
+    let orders = [
+      { id: 1, customer: "Іван Іванов", product: "Стіл", quantity: 1 },
+      { id: 2, customer: "Марія Петрова", product: "Стілець", quantity: 4 }
+    ];
+
+    // Функція для додавання товару
+    function addProduct() {
+      const id = document.getElementById('productId').value;
+      const name = document.getElementById('productName').value;
+      const description = document.getElementById('productDescription').value;
+      const category = document.getElementById('productCategory').value;
+      const manufacturer = document.getElementById('productManufacturer').value;
+      const quantity = document.getElementById('productQuantity').value;
+      const price = document.getElementById('productPrice').value;
+      const color = document.getElementById('productColor').value;
+      const material = document.getElementById('productMaterial').value;
+      const composition = document.getElementById('productComposition').value;
+      const height = document.getElementById('productHeight').value;
+      const width = document.getElementById('productWidth').value;
+      const length = document.getElementById('productLength').value;
+
+      if (!id || !name || !description || !category || !manufacturer || !quantity || !price || !color || !material || !composition || !height || !width || !length) {
+        alert('Будь ласка, заповніть всі поля.');
+        return;
+      }
+
+      const product = {
+        id,
+        name,
+        description,
+        category,
+        manufacturer,
+        quantity,
+        price,
+        color,
+        material,
+        composition,
+        height,
+        width,
+        length
+      };
+
+      products.push(product);
+      renderProducts();
+
+      // Очищення форми після додавання товару
+      clearProductForm();
+      const modalElement = document.getElementById('addProductModal');
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      modal.hide();
+    }
+
+    // Функція для очищення форми додавання товару
+    function clearProductForm() {
+      document.getElementById('productId').value = '';
+      document.getElementById('productName').value = '';
+      document.getElementById('productDescription').value = '';
+      document.getElementById('productCategory').value = '';
+      document.getElementById('productManufacturer').value = '';
+      document.getElementById('productQuantity').value = '';
+      document.getElementById('productPrice').value = '';
+      document.getElementById('productColor').value = '';
+      document.getElementById('productMaterial').value = '';
+      document.getElementById('productComposition').value = '';
+      document.getElementById('productHeight').value = '';
+      document.getElementById('productWidth').value = '';
+      document.getElementById('productLength').value = '';
+    }
+
+    // Функція для видалення товару
+    function deleteProductById() {
+      const id = document.getElementById('deleteProductId').value;
+
+      if (!id) {
+        alert('Будь ласка, введіть ІД товару для видалення.');
+        return;
+      }
+
+      products = products.filter(product => product.id !== id);
+      renderProducts();
+
+      // Очищення форми після видалення товару
+      clearDeleteProductForm();
+      const modalElement = document.getElementById('deleteProductModal');
+      const modal = bootstrap.Modal.getInstance(modalElement);
+      modal.hide();
+    }
+
+    // Функція для очищення форми видалення товару
+    function clearDeleteProductForm() {
+      document.getElementById('deleteProductId').value = '';
+    }
+
+    // Функція для рендерингу товарів
+    function renderProducts() {
+      const productList = document.getElementById('productList');
+      productList.innerHTML = '';
+
+      products.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.className = 'card mb-3';
+        productItem.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title">${product.name}</h5>
+            <p class="card-text">ID: ${product.id}</p>
+            <p class="card-text">Опис: ${product.description}</p>
+            <p class="card-text">Категорія: ${product.category}</p>
+            <p class="card-text">Виробник: ${product.manufacturer}</p>
+            <p class="card-text">Кількість: ${product.quantity}</p>
+            <p class="card-text">Ціна: ${product.price}</p>
+            <p class="card-text">Колір: ${product.color}</p>
+            <p class="card-text">Матеріал: ${product.material}</p>
+            <p class="card-text">Склад: ${product.composition}</p>
+            <p class="card-text">Висота: ${product.height} см</p>
+            <p class="card-text">Ширина: ${product.width} см</p>
+            <p class="card-text">Довжина: ${product.length} см</p>
+          </div>
+        `;
+        productList.appendChild(productItem);
+      });
+    }
+
+    // Функція для рендерингу інформації про клієнтів
+    function renderCustomers() {
+      const customerInfo = document.getElementById('customerInfo');
+      customerInfo.innerHTML = '';
+
+      customers.forEach(customer => {
+        const customerItem = document.createElement('div');
+        customerItem.className = 'card mb-3';
+        customerItem.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title">${customer.name}</h5>
+            <p class="card-text">ID: ${customer.id}</p>
+            <p class="card-text">Email: ${customer.email}</p>
+          </div>
+        `;
+        customerInfo.appendChild(customerItem);
+      });
+    }
+
+    // Функція для рендерингу інформації про замовлення
+    function renderOrders() {
+      const orderInfo = document.getElementById('orderInfo');
+      orderInfo.innerHTML = '';
+
+      orders.forEach(order => {
+        const orderItem = document.createElement('div');
+        orderItem.className = 'card mb-3';
+        orderItem.innerHTML = `
+          <div class="card-body">
+            <h5 class="card-title">Замовлення #${order.id}</h5>
+            <p class="card-text">Клієнт: ${order.customer}</p>
+            <p class="card-text">Товар: ${order.product}</p>
+            <p class="card-text">Кількість: ${order.quantity}</p>
+          </div>
+        `;
+        orderInfo.appendChild(orderItem);
+      });
+    }
+
+// Виклик функцій рендерингу при завантаженні сторінки
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  renderCustomers();
+  renderOrders();
+});
+  </script>
+
+
+  <!-- Нижній колонтитул -->
+  <footer class="py-3 bg-light mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Усі права захищено</span>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <ul class="nav justify-content-end">
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img src="../images/instagram.svg" alt="instagram.svg">
+            </svg></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img src="../images/facebook.svg" alt="facebook.svg"></svg></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img src="../images/tiktok.svg" alt="tiktok.svg"></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

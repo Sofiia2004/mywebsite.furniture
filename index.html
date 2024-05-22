@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МЕБЛІ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <style>
+    .carousel-item img {
+      height: 400px;
+      object-fit: cover;
+      /* Щоб зображення відображалися без розтягування та стискання */
+      width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+      color: #102C57;
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      height: 225px;
+      width: 100%;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    #search-input {
+      width: 400px;
+    }
+
+
+    #filter {
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Наверхніший верх -->
+
+  <section id="title" class="">
+    <nav class="py-2 bg-body-tertiary border-bottom">
+      <div class="container d-flex flex-wrap">
+        <ul class="nav me-auto">
+          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2 active" aria-current="page"><a
+                href="./index.html" class="nav-link link-body-emphasis px-2">Каталог</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"> <a href="./public/contacts.html"
+                class="nav-link link-body-emphasis px-2">Контакти</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><a href="./public/about.html"
+                class="nav-link link-body-emphasis px-2">Про нас</a></li>
+        </ul>
+        <ul class="nav">
+          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><a href="./public/sign in.html"
+                class="nav-link link-body-emphasis px-2">Авторизація</a></li>
+          <li class="nav-item"><a href="#" class="nav-link link-body-emphasis px-2"><a href="./public/subscribe.html"
+                class="nav-link link-body-emphasis px-2">Реєстрація</a></li>
+        </ul>
+      </div>
+    </nav>
+    <header class="py-3 mb-4 border-bottom">
+      <div class="container d-flex flex-wrap justify-content-center">
+        <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+          <span class="fs-4">МАГАЗИНУ НАЗВА</span>
+        </a>
+      </div>
+    </header>
+  </section>
+
+  <!-- Карусель -->
+
+  <section id="Carousel" class=""></section>
+  <div class="container">
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./images/pexels-pixabay-271816.jpg" class="d-block w-100" alt="синя кімната">
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pexels-jvdm-1457842.jpg" class="d-block w-100" alt="синя тумба">
+        </div>
+        <div class="carousel-item">
+          <img src="./images/pexels-atbo-66986-245208.jpg" class="d-block w-100" alt="коричнева кімната">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  </section>
+
+  <!-- Пошук за категоріями та назвою -->
+
+  <section id="filter" class="py-3">
+    <div class="container">
+      <div class="row">
+        <div class="search-container">
+          <select class="form-select" id="category-select">
+            <option value="all">Всі категорії</option>
+            <option value="Меблі для вітальні">Меблі для вітальні</option>
+            <option value="Меблі для спальні">Меблі для спальні</option>
+            <option value="Меблі для кухні">Меблі для кухні</option>
+            <option value="Меблі для ванної">Меблі для ванної</option>
+            <option value="Меблі для офісу">Меблі для офісу</option>
+            <option value="Меблі для дитячої">Меблі для дитячої</option> 
+            <!-- Add other categories as needed -->
+          </select>
+          <input type="search" class="form-control" placeholder="Пошук..." aria-label="Search" id="search-input">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Товари -->
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" id="items-container">
+        <!-- Картка 1 -->
+        <div class="col item" data-category="Меблі для вітальні">
+          <div class="card shadow-sm">
+            <img src="./images/1_sofa.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+              aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Диван синій "Волошка", розкладний.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="./public/sign in.html" class="btn btn-sm btn-outline-secondary">Купити</a>
+                  <a href="./public/card 1.html" class="btn btn-sm btn-outline-secondary">Детальніше</a>
+                </div>
+                <small class="text-body-secondary">5 000 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Картка 2 -->
+        <div class="col item" data-category="Меблі для спальні">
+          <div class="card shadow-sm">
+            <img src="./images/5_armchair.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225"
+              role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Диван сірий "Підсніжник".</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="./public/sign in.html" class="btn btn-sm btn-outline-secondary">Купити</a>
+                  <a href="./public/card 2.html" class="btn btn-sm btn-outline-secondary">Детальніше</a>
+                </div>
+                <small class="text-body-secondary">3 500 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Картка 3 -->
+        <div class="col item" data-category="Меблі для кухні">
+          <div class="card shadow-sm">
+            <img src="./images/3_table.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+              aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Стіл кухонний "Дубок", світлий.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="./public/sign in.html" class="btn btn-sm btn-outline-secondary">Купити</a>
+                  <a href="./public/card 3.html" class="btn btn-sm btn-outline-secondary">Детальніше</a>
+                </div>
+                <small class="text-body-secondary">3 500 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Картка 4 -->
+        <div class="col item" data-category="Меблі для вітальні">
+          <div class="card shadow-sm">
+            <img src="./images/pexels-amelia-hallsworth-5461651.jpg" class="bd-placeholder-img card-img-top" width="100%"
+              height="225" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Комод дерев'яний "Модрина".</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+                </div>
+                <small class="text-body-secondary">3 000 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Картка 5 -->
+        <div class="col item" data-category="Меблі для вітальні">
+          <div class="card shadow-sm">
+            <img src="./images/6_chair.webp" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+              aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Крісло м'яке червоне "Мак".</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+                </div>
+                <small class="text-body-secondary">1 500 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Картка 6 -->
+        <div class="col item" data-category="Меблі для кухні">
+          <div class="card shadow-sm">
+            <img src="./images/7_table.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+              aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <div class="card-body">
+              <p class="card-text">Стіл круглий світлий "Сонях".</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+                </div>
+                <small class="text-body-secondary">800 грн</small>
+              </div>
+            </div>
+          </div>
+        </div>
+<!-- Картка 7 -->
+<div class="col item" data-category="Меблі для спальні">
+  <div class="card shadow-sm">
+    <img src="./images/8_tumbochka.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Тумба дерев'яна "Бамбук".</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">2 000 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Картка 8 -->
+<div class="col item" data-category="Меблі для ванної">
+  <div class="card shadow-sm">
+    <img src="./images/9_shafa.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Шафа дерев'яна "Сосна" підвісна.</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">3 100 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Картка 9 -->
+<div class="col item" data-category="Меблі для офісу">
+  <div class="card shadow-sm">
+    <img src="./images/10_stil.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Робочий стіл + крісло "Ясенова пара".</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">4 000 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Картка 10 -->
+<div class="col item" data-category="Меблі для вітальні">
+  <div class="card shadow-sm">
+    <img src="./images/11_krislo.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Крісло м'яке жовте "Лимон".</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">1 100 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Картка 11 -->
+<div class="col item" data-category="Меблі для спальні">
+  <div class="card shadow-sm">
+    <img src="./images/12_comod.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Комод чорний "Мармур".</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">1 800 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Картка 11 -->
+<div class="col item" data-category="Меблі для кухні">
+  <div class="card shadow-sm">
+    <img src="./images/13_bar.jpg" class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"
+      aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <div class="card-body">
+      <p class="card-text">Барна стійка біла "Алича".</p>
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary">Купити</button>
+          <button type="button" class="btn btn-sm btn-outline-secondary">Детальніше</button>
+        </div>
+        <small class="text-body-secondary">3 700 грн</small>
+      </div>
+    </div>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Нижній колонтитул -->
+  <footer class="py-3 bg-light mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Усі права захищено</span>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <ul class="nav justify-content-end">
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img
+                    src="./images/instagram.svg" alt="instagram.svg">
+                </svg></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img
+                    src="./images/facebook.svg" alt="facebook.svg"></svg></a></li>
+            <li class="nav-item me-3"><a class="nav-link" href="#"><svg class="bi" width="24" height="24"><img
+                    src="./images/tiktok.svg" alt="tiktok.svg"></svg></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
